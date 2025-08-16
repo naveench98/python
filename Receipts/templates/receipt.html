@@ -5,10 +5,15 @@
 </head>
 <body>
     <h2>Receipt</h2>
+    <!-- Table to display receipt details -->
     <table border="1" cellpadding="5" cellspacing="0">
         <tr>
-            <th>No</th><th>Item</th><th>Qty</th><th>Price</th>
+            <th>No</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
         </tr>
+        <!-- Loop through each transaction and display its data -->
         {% for t in transactions %}
         <tr>
             <td>{{ loop.index }}</td>
@@ -17,12 +22,15 @@
             <td>{{ "%.2f"|format(t.price) }}</td>
         </tr>
         {% endfor %}
+        <!-- Show the total at the bottom -->
         <tr>
             <td colspan="3" align="right"><b>Total</b></td>
             <td><b>{{ "%.2f"|format(total) }}</b></td>
         </tr>
     </table>
     <br>
+    <!-- Link to go back and create another receipt -->
     <a href="/">Create Another Receipt</a>
 </body>
 </html>
+
