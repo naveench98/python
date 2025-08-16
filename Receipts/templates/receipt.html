@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Receipt</title>
+</head>
+<body>
+    <h2>Receipt</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>No</th><th>Item</th><th>Qty</th><th>Price</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ t.item }}</td>
+            <td>{{ t.qty }}</td>
+            <td>{{ "%.2f"|format(t.price) }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3" align="right"><b>Total</b></td>
+            <td><b>{{ "%.2f"|format(total) }}</b></td>
+        </tr>
+    </table>
+    <br>
+    <a href="/">Create Another Receipt</a>
+</body>
+</html>
