@@ -16,10 +16,7 @@ def receipt():
         items = request.form.getlist('item')
         qtys = request.form.getlist('qty')
         prices = request.form.getlist('price')
-
-        # Process each transaction submitted
-        for item, qty, price in zip(items, qtys, prices):
-            # Add transaction as a dictionary to the list
+        for item, qty, price in zip(items, qtys, prices): 
             transactions.append({'item': item, 'qty': int(qty), 'price': float(price)})
             # Update total amount
             total += int(qty) * float(price)
